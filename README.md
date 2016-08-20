@@ -35,6 +35,6 @@ python3 setup.py install
 
 ## Example:
 ```bash
-fpy [...]
+fcpy [...]
 
 ```
