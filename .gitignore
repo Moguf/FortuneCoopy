@@ -92,7 +92,8 @@ ENV/
 \#*
 *~
 
-!.gitkeep
 data/*
 build/*
+venv/*
 
+!.gitkeep
