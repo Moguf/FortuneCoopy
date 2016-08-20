@@ -26,8 +26,9 @@ source venv/bin/activate
 # or
 (venv) pip3 install -r requirements.txt
 ```
-* for TensorFlow
-You go to [TensorFlow](https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html#pip-installation)to install Tensorflow. Tensorflow supports GUP acceleration, you need to install TensorFlow due to your environment.
+* For TensorFlow
+
+You go to [TensorFlow](https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html#pip-installation) to install Tensorflow modules. Tensorflow supports GPU acceleration, you need to install TensorFlow due to your environment.
 
 ```bash
 # for mac and cpu only
