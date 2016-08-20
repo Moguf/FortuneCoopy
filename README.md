@@ -7,6 +7,7 @@ Please check requirements.txt
 ## Set Up
 * install virtualenv.
 ```bash
+python3 -m pip install -U pip setuptools
 python3 -m pip install virtualenv
 # or
 pip3 install virtualenv
