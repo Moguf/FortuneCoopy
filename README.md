@@ -26,6 +26,17 @@ source venv/bin/activate
 # or
 (venv) pip3 install -r requirements.txt
 ```
+* for TensorFlow
+You go to [TensorFlow](https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html#pip-installation)to install Tensorflow. Tensorflow supports GUP acceleration, you need to install TensorFlow due to your environment.
+
+```bash
+# for mac and cpu only
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.10.0rc0-py3-none-any.whl
+# for linux and cpu and gpu
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
+
+pip install -U $TF_BINARY_URL
+```
 
 ## build & install
 ```
@@ -38,3 +49,4 @@ python3 setup.py install
 fcpy [...]
 
 ```
+

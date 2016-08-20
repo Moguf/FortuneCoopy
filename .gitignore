@@ -97,3 +97,6 @@ build/*
 venv/*
 
 !.gitkeep
+
+# for Database
+*.db
