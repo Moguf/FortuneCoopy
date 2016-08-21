@@ -3,17 +3,13 @@
 
 from setuptools import setup
 
-setup(name='fcpy',
+setup(name='Fortune-Coopy',
       version='0.0.1',
       description='For predicting japanase stocks.',
       author='Mogu',
       author_email='kbu94984@gmail.com',
       url='',
-      packages=['src','src/core'],
+      packages=['fcpy'],
       install_requires=[],
-      entry_points="""
-      [console_scripts]
-      fcpy = fcpy:__main__
-      """,
 )
 
