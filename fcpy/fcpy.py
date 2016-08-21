@@ -10,8 +10,7 @@
 """
 import argparse
 
-
-class Fcpy:
+class fcpy:
     # Main class of fcpy
     def __init__(self):
         pass

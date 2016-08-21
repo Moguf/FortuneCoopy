@@ -23,4 +23,4 @@ for j in range(3,7):
             result = response.read()
             wfile = open(fname,'w')
             wfile.write(result)
-            print fname
+            print(fname)
