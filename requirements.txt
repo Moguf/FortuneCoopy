@@ -19,4 +19,5 @@ snowballstemmer>=1.2.1
 Sphinx>=1.4.5
 tensorflow>=0.10.0rc0
 Theano>=0.8.2
-git+https://github.com/moguf/easy_utill.git 
+git+https://github.com/moguf/easy_util.git 
+git+https://github.com/moguf/SQLiteater.git
