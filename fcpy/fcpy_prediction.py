@@ -1,5 +1,5 @@
 
-import sklearn
+#import sklearn
 
 from sqliteater import SQLiteater
 
@@ -9,7 +9,8 @@ class FcpyPrediction(object):
         self.db.openDB('../data/mystocks.db')
     
     def run(self):
-        pass
+        tablename = 'stocks'
+        print(len(self.db.getRowData(tablename, 'name', distinct=True)))
 
     def close(self):
         self.db.close()
