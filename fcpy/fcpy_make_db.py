@@ -33,6 +33,7 @@ class FcpyMakeDB:
             for i, row in enumerate(reader):
                 data = []
                 code, name, market, openv, high, low, close, volume, turnover = row
+                code = ''.join(code.split('-'))
                 indata = [sdate+code, date, weekday, code, name, market, openv, high, low, close, volume, turnover]
                 self.db.insert(self.tablename, self.namelist, typelist=self.stocks_types, datalist=indata)
 
@@ -48,6 +49,7 @@ if __name__ == '__main__':
     tmp.createTable()
     cmd = 'ls ../data/csv/*.csv'
     for ifile in check_output(cmd, shell=True).split():
+        print(ifile)
         tmp.insertData(ifile.decode('utf-8'))
     #tmp.showDB()
     tmp.close()
