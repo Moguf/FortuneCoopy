@@ -1,6 +1,5 @@
-
 import numpy as np
-import sklearn
+from sklearn.preprocessing import StandardScaler, scale
 from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 import matplotlib.finance as fin
@@ -13,16 +12,39 @@ class FcpyPrediction(object):
         self.db = SQLiteater()
         self.db.openDB('../data/mystocks.db')
         self.tablename = 'stocks'
+        self.code_list = []
         
     def run(self):
         print((self.db.getRowData(self.tablename, 'code', distinct=True)))
 
-              
     def getClose(self, code):
         return self.numpyArray(self.db.select(self.tablename, 'close', where='code == "{}"'.format(code)))
 
+    def getCode(self):
+        return self.numpyArray(self.db.select(self.tablename, 'code', distinct=True))
+
     def createCorrelationTable(self):
+        self.code_list = self.getCode()
+        for icode in self.code_list:
+            try:
+                print(icode, end='')
+            except:
+                print()
+                pass
+
+    def createNormalizedTable(self, codelist):
+        fig = plt.figure()
+        ax1 = fig.add_subplot(111)
         
+        for icode in codelist:
+            data = self.getClose(icode)
+            scaled = scale(data)
+            ax1.plot(scaled)
+        #ax.hist(scaled, bins=np.arange(min(scaled), max(scaled) + binwidth, binwidth))
+
+        plt.show()
+        
+            
     def chart(self, code):
         date = self.numpyArray(self.db.select(self.tablename, 'date', where='code == "{}"'.format(code)))
         high = self.numpyArray(self.db.select(self.tablename, 'high', where='code == "{}"'.format(code)))
@@ -48,14 +70,19 @@ class FcpyPrediction(object):
     def numpyArray(self, inlist):
         return np.array(inlist).T[0]
 
-    def toList():
+    def toList(self, inlist):
+        pass
+        
     def close(self):
         self.db.close()
 
 if __name__ == '__main__':
     tmp = FcpyPrediction()
-    tmp.run()
-    print(pearsonr(tmp.getClose('1301T'), tmp.getClose('1305T')))
+    #tmp.run()
+    #print(pearsonr(tmp.getClose('1301T'), tmp.getClose('1305T')))
+    #tmp.createCorrelationTable()
+    code = ['1301T', '1305T', '1306T', '1311T', '1308T', '1310T', '1320T', '9790T', '9791T', '1435T']
+    tmp.createNormalizedTable(code)
     tmp.close()
 
     
